@@ -21,6 +21,7 @@ import android.animation.Animator.AnimatorListener
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -125,6 +126,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun colorizer() {
+
+        //not so useful method
+        //val animator = ObjectAnimator.ofInt(star.parent, "backgroundColor",Color.BLACK,Color.RED)
+
+        val animator = ObjectAnimator.ofArgb(star.parent, "backgroundColor",Color.BLACK,Color.RED)
+        animator.duration=500
+        animator.repeatCount = 1
+        animator.repeatMode = ObjectAnimator.REVERSE
+        animator.disableViewDuringAnimation(colorizeButton)
+        animator.start()
+
     }
 
     private fun shower() {
